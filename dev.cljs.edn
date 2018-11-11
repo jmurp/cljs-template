@@ -1,0 +1,6 @@
+^{:css-dirs ["resources/public/css"]
+  :watch-dirs ["src"]
+  :open-url false
+  :npm {:bundles {"dist/index.bundle.js" "src/js/index.js"}}}
+{:main hello-world.core
+ :npm-deps false}
