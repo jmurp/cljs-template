@@ -9,3 +9,7 @@ npm add react react-dom webpack webpack-cli
 edit index.js
 
 npx webpack
+
+# using figwheel
+
+clojure -A:dev
