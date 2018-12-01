@@ -1,6 +1,5 @@
-^{:css-dirs ["resources/public/css"]
-  :watch-dirs ["src"]
+^{:figwheel-core false
   :open-url false
   :npm {:bundles {"dist/index.bundle.js" "src/js/index.js"}}}
-{:main hello-world-web.core
+{:main ajd-web.core
  :npm-deps false}
