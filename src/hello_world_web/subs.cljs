@@ -1,4 +1,4 @@
-(ns hello-world-web.home.subs
+(ns hello-world-web.subs
   (:require
     [re-frame.core :refer [reg-sub subscribe]]))
 

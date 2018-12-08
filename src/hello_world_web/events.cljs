@@ -1,4 +1,4 @@
-(ns hello-world-web.home.events
+(ns hello-world-web.events
   (:require
     [hello-world-web.util :refer [xhr-get xhr-post xhr-response]]
     [re-frame.core :refer [reg-event-fx reg-event-db reg-fx dispatch]]))

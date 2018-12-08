@@ -12,27 +12,33 @@
   [json]
   (js->clj (.parse js/JSON json) :keywordize-keys true))
 
+(defn apply-callback
+  [success error evt]
+  (let [xhr (.-target evt)]
+    (if (= 200 (.getStatus xhr))
+      (success evt)
+      (error evt))))
+
 (defn xhr-post
   "Make a POST request. Sends to the uri and performs the callback.
   Data sent is converted from clojure data to a JSON string."
-  [uri callback clj-map]
+  [uri success error clj-map]
   (xhrio/send
     uri
-    callback
+    (partial apply-callback success error)
     "POST"
     (to-json-string clj-map)
     {"content-type" "application/json"}))
 
 (defn xhr-get
   "Make a GET request. Sends to the uri and performs the callback."
-  [uri callback]
+  [uri success error]
   (xhrio/send
     uri
-    callback))
+    (partial apply-callback success error)))
 
 (defn xhr-response
   "Get the response from an event attached to an XhrIo instance or from
   the static XhrIo call. Response is converted to clojure data."
   [evt]
-  (let [response-as-str (.getResponseText (.-target evt))]
-    (to-clj response-as-str)))
+  (to-clj (.getResponseText (.-target evt))))

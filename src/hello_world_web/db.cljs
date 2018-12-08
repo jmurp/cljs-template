@@ -1,4 +1,4 @@
-(ns hello-world-web.home.db)
+(ns hello-world-web.db)
 
 (def initial-db
   {:view "home"})
